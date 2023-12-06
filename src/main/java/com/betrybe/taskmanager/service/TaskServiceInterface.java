@@ -17,4 +17,6 @@ public interface TaskServiceInterface {
   TaskDto getTaskById(String id);
 
   String createTask(TaskCreationDto task);
+
+  void setTaskAsComplete(String id);
 }

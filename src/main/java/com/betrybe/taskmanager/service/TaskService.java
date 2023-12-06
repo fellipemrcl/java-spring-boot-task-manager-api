@@ -56,4 +56,10 @@ public class TaskService implements TaskServiceInterface {
 
     return newTask.getId();
   }
+
+  @Override
+  public void setTaskAsComplete(String id) {
+    TaskModel task = database.getTaskById(id);
+    task.setIsCompleted(true);
+  }
 }

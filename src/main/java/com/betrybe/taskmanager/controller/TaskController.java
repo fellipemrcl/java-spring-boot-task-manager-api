@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -69,5 +70,18 @@ public class TaskController {
     String taskId = service.createTask(task);
 
     return ResponseEntity.status(HttpStatus.CREATED).body(taskId);
+  }
+
+  /**
+   * Sets task as complete.
+   *
+   * @param id the id
+   * @return the task as complete
+   */
+  @PutMapping("/{id}")
+  public ResponseEntity<Void> setTaskAsComplete(@PathVariable String id) {
+    service.setTaskAsComplete(id);
+
+    return ResponseEntity.noContent().build();
   }
 }
