@@ -37,4 +37,11 @@ public class TaskService implements TaskServiceInterface {
 
     return tasks.stream().map(this::modelToDto).toList();
   }
+
+  @Override
+  public TaskDto getTaskById(String id) {
+    TaskModel task = database.getTaskById(id);
+
+    return modelToDto(task);
+  }
 }

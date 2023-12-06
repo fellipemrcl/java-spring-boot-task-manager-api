@@ -12,4 +12,6 @@ public interface TaskServiceInterface {
   TaskDto modelToDto(TaskModel task);
 
   List<TaskDto> getAllTasks();
+
+  TaskDto getTaskById(String id);
 }
