@@ -1,5 +1,6 @@
 package com.betrybe.taskmanager.service;
 
+import com.betrybe.taskmanager.dto.TaskCreationDto;
 import com.betrybe.taskmanager.dto.TaskDto;
 import com.betrybe.taskmanager.model.TaskModel;
 import java.util.List;
@@ -14,4 +15,6 @@ public interface TaskServiceInterface {
   List<TaskDto> getAllTasks();
 
   TaskDto getTaskById(String id);
+
+  String createTask(TaskCreationDto task);
 }

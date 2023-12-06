@@ -1,6 +1,7 @@
 package com.betrybe.taskmanager.service;
 
 import com.betrybe.taskmanager.database.TaskDatabaseInterface;
+import com.betrybe.taskmanager.dto.TaskCreationDto;
 import com.betrybe.taskmanager.dto.TaskDto;
 import com.betrybe.taskmanager.model.TaskModel;
 import java.util.List;
@@ -43,5 +44,16 @@ public class TaskService implements TaskServiceInterface {
     TaskModel task = database.getTaskById(id);
 
     return modelToDto(task);
+  }
+
+  @Override
+  public String createTask(TaskCreationDto task) {
+    TaskModel newTask = database.createTask(
+        task.title(),
+        task.description(),
+        task.ownerName()
+    );
+
+    return newTask.getId();
   }
 }
