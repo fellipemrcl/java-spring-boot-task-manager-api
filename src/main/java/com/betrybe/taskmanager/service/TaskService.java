@@ -62,4 +62,9 @@ public class TaskService implements TaskServiceInterface {
     TaskModel task = database.getTaskById(id);
     task.setIsCompleted(true);
   }
+
+  @Override
+  public void deleteTask(String id) {
+    database.removeTaskById(id);
+  }
 }
